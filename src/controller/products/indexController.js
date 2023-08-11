@@ -40,6 +40,7 @@
 
 const Joi = require("joi");
 const ProductSchema = require("../../models/products");
+const RatingsSchema = require("../../models/ratings");
 const Sequelize = require("sequelize");
 
 module.exports.index = async (req, resp) => {
@@ -58,11 +59,13 @@ module.exports.index = async (req, resp) => {
 
   const totalCount = await ProductSchema.count({
     where: whereCondition, // Apply the search criteria
+    include: [RatingsSchema],
   });
 
   const totalPages = Math.ceil(totalCount / perPage);
 
   const data = await ProductSchema.findAll({
+    include: [RatingsSchema],
     where: whereCondition, // Apply the search criteria
     limit: perPage,
     offset: offset,

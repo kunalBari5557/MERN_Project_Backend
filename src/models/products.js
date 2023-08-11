@@ -1,5 +1,7 @@
 const Sequelize = require("sequelize");
 const db = require("../../config/db");
+const Rating = require('./ratings')
+
 const ProductSchema = {
   id: {
     type: Sequelize.BIGINT,
@@ -49,4 +51,11 @@ const ProductSchema = {
 };
 
 const Product = db.define("products", ProductSchema,{paranoid:true});
+Product.belongsTo(Rating, {
+  foreignKey: 'rate_id',
+});
+
+Rating.hasMany(Product, {
+  foreignKey: 'rate_id',
+});
 module.exports = Product;
