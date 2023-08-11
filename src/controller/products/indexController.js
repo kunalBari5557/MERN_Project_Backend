@@ -65,7 +65,11 @@ module.exports.index = async (req, resp) => {
   const totalPages = Math.ceil(totalCount / perPage);
 
   const data = await ProductSchema.findAll({
-    include: [RatingsSchema],
+    attributes:['id','title','price','description','category','image','createdAt','updatedAt','deletedAt'],
+    include: [{
+      model:RatingsSchema,
+      attributes:['id','rate','count']
+    }],
     where: whereCondition, // Apply the search criteria
     limit: perPage,
     offset: offset,
