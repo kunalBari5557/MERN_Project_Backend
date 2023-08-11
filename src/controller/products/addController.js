@@ -1,7 +1,7 @@
 const Joi = require("joi");
 const path = require('path');
 const multer = require("multer");
-const UserSchema = require("../../models/products");
+const ProductSchema = require("../../models/products");
 
 module.exports.add = async (req, res) => {
   // const title = req.body.title;
@@ -31,7 +31,7 @@ module.exports.add = async (req, res) => {
   //     msg: result.error.details[0].message,
   //   });
   // } else {
-  //   const createdPost = await UserSchema.create({
+  //   const createdPost = await ProductSchema.create({
   //     title: title,
   //     price: price,
   //     description: description,
@@ -131,7 +131,7 @@ module.exports.add = async (req, res) => {
 
         // const imageUrl = req.file ? `${req.protocol}://${req.get('host')}/image/${fileSuffix}-${req.file.originalname}` : '';
 
-        const products = await UserSchema.create({
+        const products = await ProductSchema.create({
           title: title,
           price: price,
           description: description,

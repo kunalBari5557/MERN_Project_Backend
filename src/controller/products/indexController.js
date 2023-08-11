@@ -1,5 +1,5 @@
 // const Joi = require("joi");
-// const UserSchema = require("../../models/products");
+// const ProductSchema = require("../../models/products");
 
 // module.exports.index = async (req, resp) => {
 //   const page = req.query.page ? parseInt(req.query.page) : 1;
@@ -7,10 +7,10 @@
 
 //   const offset = (page - 1) * perPage;
 
-//   const totalCount = await UserSchema.count();
+//   const totalCount = await ProductSchema.count();
 //   const totalPages = Math.ceil(totalCount / perPage);
 
-//   const data = await UserSchema.findAll({
+//   const data = await ProductSchema.findAll({
 //     limit: perPage,
 //     offset: offset,
 //   });
@@ -39,7 +39,7 @@
 // };
 
 const Joi = require("joi");
-const UserSchema = require("../../models/products");
+const ProductSchema = require("../../models/products");
 const Sequelize = require("sequelize");
 
 module.exports.index = async (req, resp) => {
@@ -56,13 +56,13 @@ module.exports.index = async (req, resp) => {
     },
   };
 
-  const totalCount = await UserSchema.count({
+  const totalCount = await ProductSchema.count({
     where: whereCondition, // Apply the search criteria
   });
 
   const totalPages = Math.ceil(totalCount / perPage);
 
-  const data = await UserSchema.findAll({
+  const data = await ProductSchema.findAll({
     where: whereCondition, // Apply the search criteria
     limit: perPage,
     offset: offset,

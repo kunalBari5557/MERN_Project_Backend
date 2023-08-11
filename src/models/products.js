@@ -1,6 +1,6 @@
 const Sequelize = require("sequelize");
 const db = require("../../config/db");
-const UserSchema = {
+const ProductSchema = {
   id: {
     type: Sequelize.BIGINT,
     allowNull: false,
@@ -48,5 +48,5 @@ const UserSchema = {
   },
 };
 
-const User = db.define("products", UserSchema,{paranoid:true});
-module.exports = User;
+const Product = db.define("products", ProductSchema,{paranoid:true});
+module.exports = Product;

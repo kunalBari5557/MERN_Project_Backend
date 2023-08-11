@@ -1,7 +1,7 @@
 const Joi = require("joi");
 const path = require("path");
 const multer = require("multer");
-const UserSchema = require("../../models/products");
+const ProductSchema = require("../../models/products");
 
 module.exports.update = async (req, resp) => {
   let fileSuffix = Date.now().toString();
@@ -77,7 +77,7 @@ module.exports.update = async (req, resp) => {
 
       // const imageUrl = req.file ? `${req.protocol}://${req.get('host')}/image/${fileSuffix}-${req.file.originalname}` : '';
 
-      const createdPost = await UserSchema.update(
+      const createdPost = await ProductSchema.update(
         {
           title: title,
           price: price,

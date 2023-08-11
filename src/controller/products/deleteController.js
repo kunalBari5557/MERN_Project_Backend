@@ -1,8 +1,8 @@
 const Joi = require("joi");
-const UserSchema = require("../../models/products");
+const ProductSchema = require("../../models/products");
 
 module.exports.delete = async (req, resp) => {
-    const createdPost = await UserSchema.destroy(
+    const createdPost = await ProductSchema.destroy(
       {
         where: {
           id: req.params.id,
@@ -15,7 +15,7 @@ module.exports.delete = async (req, resp) => {
 
 // module.exports.delete = async (req, resp) => {
 //     try {
-//       const deletedUser = await UserSchema.destroy({
+//       const deletedUser = await ProductSchema.destroy({
 //         where: {
 //           id: req.params.id,
 //         },
