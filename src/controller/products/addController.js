@@ -123,7 +123,6 @@ module.exports.add = async (req, res) => {
         });
       } else {
         if (err) {
-          console.log(err);
           res.status(400).json({
             message: "file not uploded",
           });

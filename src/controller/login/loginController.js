@@ -14,7 +14,6 @@ module.exports.Authentication = async (req, resp) => {
 
   if (admin) {
     const verifyPassword = await bcrypt.compare(password, admin.password);
-    console.log("verifyPassword", verifyPassword);
     if (verifyPassword == true) {
       jwt.sign(
         { admin },

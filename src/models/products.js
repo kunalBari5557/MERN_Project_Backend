@@ -34,12 +34,10 @@ const ProductSchema = {
     allowNull: false,
   },
   createdAt: {
-    // field: 'created_at',
     allowNull: true,
     type: Sequelize.DATE,
   },
   updatedAt: {
-    // field: 'updated_at',
     allowNull: true,
     type: Sequelize.DATE,
   },

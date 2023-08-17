@@ -10,8 +10,6 @@ module.exports.update = async (req, resp) => {
       cb(null, path.join(__dirname, "../../public/image"));
     },
     filename: function (req, file, cb) {
-      console.log("file", file);
-
       cb(
         null,
         `${file.fieldname}-${Date.now()}${path.extname(file.originalname)}`
@@ -69,7 +67,6 @@ module.exports.update = async (req, resp) => {
       });
     } else {
       if (err) {
-        console.log(err);
         resp.status(400).json({
           message: "file not uploded",
         });

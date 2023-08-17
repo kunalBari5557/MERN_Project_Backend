@@ -29,20 +29,20 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      // rate_id: {
-      //   type: Sequelize.STRING,
-      //   allowNull: false,
-      // },
       rate_id: {
-        type: Sequelize.INTEGER,
-        allowNull: true,
-        references: {
-          model: 'ratings',
-          key: 'id',
-        },
-        onUpdate: 'CASCADE',
-        onDelete: 'SET NULL',
+        type: Sequelize.STRING,
+        allowNull: false,
       },
+      // rate_id: {
+      //   type: Sequelize.INTEGER,
+      //   allowNull: true,
+      //   references: {
+      //     model: 'ratings',
+      //     key: 'id',
+      //   },
+      //   onUpdate: 'CASCADE',
+      //   onDelete: 'SET NULL',
+      // },
       createdAt: {
         // field: 'created_at',
         allowNull: true,

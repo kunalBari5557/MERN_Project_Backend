@@ -11,13 +11,21 @@ const productIndexController = require('../controller/products/indexController')
 const productUpdateController = require('../controller/products/updateController')
 const productDeleteController = require('../controller/products/deleteController')
 
+//user module
+const userAddController = require('../controller/user/addController')
+const userIndexController = require('../controller/user/indexController')
+
 router.get("/",adminMiddleware,adminController.index)
 router.post("/login",loginController.Authentication)
 
 //product module
 router.post("/add",adminMiddleware,productAddController.add)
-router.get("/get",adminMiddleware,productIndexController.index)
+router.get("/product/get",adminMiddleware,productIndexController.index)
 router.put("/update/:id",adminMiddleware,productUpdateController.update)
 router.delete("/delete/:id",adminMiddleware,productDeleteController.delete)
+
+//user module
+router.post("/user/add",adminMiddleware,userAddController.add)
+router.get("/user/get",adminMiddleware,userIndexController.index)
 
 module.exports=router;
