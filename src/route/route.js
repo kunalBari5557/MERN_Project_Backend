@@ -15,6 +15,8 @@ const productDeleteController = require('../controller/products/deleteController
 const userAddController = require('../controller/user/addController')
 const userIndexController = require('../controller/user/indexController')
 const userUpdateController = require('../controller/user/updateController')
+const userDeleteController = require('../controller/user/deleteController')
+
 
 router.get("/",adminMiddleware,adminController.index)
 router.post("/login",loginController.Authentication)
@@ -29,5 +31,6 @@ router.delete("/delete/:id",adminMiddleware,productDeleteController.delete)
 router.post("/user/add",adminMiddleware,userAddController.add)
 router.get("/user/get",adminMiddleware,userIndexController.index)
 router.put("/user/update/:id",adminMiddleware,userUpdateController.update)
+router.delete("/user/delete/:id",adminMiddleware,userDeleteController.delete)
 
 module.exports=router;
