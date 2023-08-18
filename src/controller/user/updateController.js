@@ -75,8 +75,8 @@ module.exports.update = async (req, resp) => {
         });
     }
     else {
-        try {
-            const users = await userSchema.create({
+        const createdPost = await userSchema.update(
+            {
                 firstName: name.firstname,
                 lastName: name.lastname,
                 email: email,
@@ -84,21 +84,13 @@ module.exports.update = async (req, resp) => {
                 password: password,
                 phone: phone,
             },
-                {
-                    where: {
-                        id: req.params.id,
-                    }
-                }
-            );
-
-            return resp.status(200).json({
-                msg: "User updated successfully!",
-            });
-        } catch (err) {
-            console.error(err); // Log the specific error
-            return resp.status(400).json({
-                msg: "An error occurred while creating the user.",
-            });
-        }
+            {
+                where: {
+                    id: req.params.id,
+                },
+            }
+        )
+            .then((res) => resp.json({ createdPost: res }))
+            .then((err) => err);
     }
 };
