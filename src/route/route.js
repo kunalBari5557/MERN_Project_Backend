@@ -5,6 +5,10 @@ const router=express.Router()
 const adminController = require('../controller/index')
 const loginController = require('../controller/login/loginController')
 
+//login module
+router.get("/",adminMiddleware,adminController.index)
+router.post("/login",loginController.Authentication)
+
 //product module
 const productAddController = require('../controller/products/addController')
 const productIndexController = require('../controller/products/indexController')
@@ -18,16 +22,13 @@ const userUpdateController = require('../controller/user/updateController')
 const userDeleteController = require('../controller/user/deleteController')
 
 
-router.get("/",adminMiddleware,adminController.index)
-router.post("/login",loginController.Authentication)
-
-//product module
-router.post("/add",adminMiddleware,productAddController.add)
+//product module endpoint
+router.post("/product/add",adminMiddleware,productAddController.add)
 router.get("/product/get",adminMiddleware,productIndexController.index)
-router.put("/update/:id",adminMiddleware,productUpdateController.update)
-router.delete("/delete/:id",adminMiddleware,productDeleteController.delete)
+router.put("/product/update/:id",adminMiddleware,productUpdateController.update)
+router.delete("/product/delete/:id",adminMiddleware,productDeleteController.delete)
 
-//user module
+//user module endpoint
 router.post("/user/add",adminMiddleware,userAddController.add)
 router.get("/user/get",adminMiddleware,userIndexController.index)
 router.put("/user/update/:id",adminMiddleware,userUpdateController.update)
